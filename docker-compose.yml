@@ -1,0 +1,17 @@
+version: '3'
+services:
+  docker-base:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sccity/docker-base:beta
+    container_name: docker-base
+    environment:
+      - TZ=America/Denver
+    privileged: true
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1GB
